@@ -1,24 +1,21 @@
 # Script for day 1 of advent of code 2021
 
 def count_increases(input: list):
-    count = 0
-    for i in range(1, len(input)):
-        if int(input[i]) > int(input[i-1]):
-            count += 1
+    """
+    Count how many elements in the list are larger than their preceding element.
+    """
+    count = sum([input[i]> input[i-1] for i in range(1, len(input))])
     return count
 
 
 def create_sliding_windows(input: list):
-    windows = []
-    for i in range(2, len(input)):
-        window = int(input[i-2]) + int(input[i-1]) + int(input[i])
-        windows.append(window)
+    """
+    Create sliding windows of the sum of each three-tuple in a list.
+    """
+    windows = [input[i-2] + input[i-1] + input[i] for i in range(2, len(input))]
     return windows
 
-
-with open("1_input.txt") as f:
-    input = f.readlines()
-
+# Test functions work on the test data provided
 test_data = [199,
              200,
              208,
@@ -33,5 +30,10 @@ test_data = [199,
 assert count_increases(test_data) == 7
 assert count_increases(create_sliding_windows(test_data)) == 5
 
-print(count_increases(input))
-print(count_increases(create_sliding_windows(input)))
+# Open puzzle input
+with open("1_input.txt") as f:
+    str_input = f.readlines()
+    int_input = [int(x) for x in str_input]
+
+print(f"Answer to day 1, part 1 is: {count_increases(int_input)}")
+print(f"Answer to day 1, part 2 is: {count_increases(create_sliding_windows(int_input))}")
