@@ -20,21 +20,7 @@ class Submarine():
         self.aim = 0
 
 
-    def calc_new_position_part_one(self, command: str):
-        """
-        Calculate the new horizontal and vertical position based on am input instruction according to part one.
-        """
-        if "forward" in command:
-            self.horizontal += int(command.strip("forward "))
-        elif "down" in command:
-            self.depth += int(command.strip("down "))
-        elif "up" in command:
-            self.depth -= int(command.strip("up "))
-        else:
-            raise ValueError("Command should contain 'forward', 'down' or 'up'.")
-
-
-    def calc_new_position_part_two(self, command: str):
+    def calc_new_position(self, command: str):
         """
         Calculate the new horizontal and vertical position based on an input instruction according to part two.
         """
@@ -49,25 +35,18 @@ class Submarine():
             raise ValueError("Command should contain 'forward', 'down' or 'up'.")
 
 
-    def process_commands(self, part):
-        """
-        Process all the commands given to the submarine.
-        """
-        if part == 1:
-            for command in self.commands: self.calc_new_position_part_one(command)
-        elif part == 2:
-            for command in self.commands: self.calc_new_position_part_two(command)
-        else:
-            raise ValueError("Part should be either 1 or 2.")
-
-
     def calc_final_value(self, part):
         """
         Calculate the final value (horizontal * depth) of the submarine depending on instruction set (part).
         """
         self.reset_position()
-        self.process_commands(part)
-        return self.horizontal * self.depth
+        for command in self.commands: self.calc_new_position(command)
+        if part == 1:
+            return self.horizontal * self.aim
+        elif part == 2:
+            return self.horizontal * self.depth
+        else:
+            raise ValueError("Part should be either 1 or 2.")
 
 
 # Test class works on the test data provided
