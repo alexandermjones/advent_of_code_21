@@ -22,7 +22,7 @@ class Submarine():
 
     def calc_new_position(self, command: str):
         """
-        Calculate the new horizontal and vertical position based on an input instruction according to part two.
+        Calculate the new horizontal and vertical position based on an input instruction.
         """
         if "forward" in command:
             self.horizontal += int(command.strip("forward "))
@@ -37,7 +37,7 @@ class Submarine():
 
     def calc_final_value(self, part):
         """
-        Calculate the final value (horizontal * depth) of the submarine depending on instruction set (part).
+        Calculate the final value of the submarine depending on instruction set (part).
         """
         self.reset_position()
         for command in self.commands: self.calc_new_position(command)
