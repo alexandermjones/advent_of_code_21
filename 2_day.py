@@ -8,16 +8,7 @@ class Submarine():
         self.horizontal = 0
         self.depth = 0
         self.aim = 0
-        self.commands = commands
-
-
-    def reset_position(self):
-        """
-        Reset the submarine's position to be 0 everywhere.
-        """
-        self.horizontal = 0
-        self.depth = 0
-        self.aim = 0
+        for command in commands: self.calc_new_position(command)
 
 
     def calc_new_position(self, command: str):
@@ -35,12 +26,10 @@ class Submarine():
             raise ValueError("Command should contain 'forward', 'down' or 'up'.")
 
 
-    def calc_final_value(self, part):
+    def return_final_position(self, part):
         """
         Calculate the final value of the submarine depending on instruction set (part).
         """
-        self.reset_position()
-        for command in self.commands: self.calc_new_position(command)
         if part == 1:
             return self.horizontal * self.aim
         elif part == 2:
@@ -58,13 +47,13 @@ test_data = ["forward 5",
              "forward 2"
             ]
 test_submarine = Submarine(test_data)
-assert test_submarine.calc_final_value(1) == 150
-assert test_submarine.calc_final_value(2) == 900
+assert test_submarine.return_final_position(1) == 150
+assert test_submarine.return_final_position(2) == 900
 
 # Open puzzle input
 with open("2_input.txt") as f:
     str_input = f.readlines()
 
 submarine = Submarine(str_input)
-print(f"Answer to day 2, part 1 is: {submarine.calc_final_value(1)}")
-print(f"Answer to day 2, part 2 is: {submarine.calc_final_value(2)}")
+print(f"Answer to day 2, part 1 is: {submarine.return_final_position(1)}")
+print(f"Answer to day 2, part 2 is: {submarine.return_final_position(2)}")
