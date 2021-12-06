@@ -6,11 +6,8 @@ def get_most_common_bit_at_n(binary_strs: list, n: int) -> str:
     """
     bit_set = [binary_str[n] for binary_str in binary_strs]
     # Number of 1s is >= number of 0s iff number of 1s >= len(bits) - num_ones.
-    if 2*bit_set.count("1") >= len(bit_set):
-        # Part 2 specifies that when we have an equal number, we should return 1.
-        return "1"
-    else:
-        return "0"
+    # Part 2 specifies that when we have an equal number, we should return 1.
+    return "1" if 2*bit_set.count("1") >= len(bit_set) else "0"
 
 
 def calc_most_and_least_common_bits(binary_strs: list) -> tuple:
@@ -95,5 +92,5 @@ assert calc_life_support_rating(test_data) == 230
 with open("3_input.txt") as f:
     binary_strs = f.readlines()
 
-print(f"Answer to day 1, part 1 is: {calc_power_consumption(binary_strs)}")
-print(f"Answer to day 1, part 2 is: {calc_life_support_rating(binary_strs)}")
+print(f"Answer to day 3, part 1 is: {calc_power_consumption(binary_strs)}")
+print(f"Answer to day 3, part 2 is: {calc_life_support_rating(binary_strs)}")
