@@ -1,5 +1,5 @@
 # Ignore all txt (input) files
-*.txt
+*input.txt
 
 # Default python ignore
 
