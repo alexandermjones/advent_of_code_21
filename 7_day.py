@@ -1,4 +1,4 @@
-# Script for day 6 of advent of code 2021
+# Script for day 7 of advent of code 2021
 
 def calculate_fuel_cost(crab_locations: list, target_location: int, part_one: bool) -> int:
     """
