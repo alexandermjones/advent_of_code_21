@@ -39,7 +39,7 @@ assert calc_num_lanternfish(test_data, 80) == 5934
 assert calc_num_lanternfish(test_data, 256) == 26984457539
 
 # Open puzzle input
-with open("6_input.txt") as f:
+with open("input_data/6_input.txt") as f:
     str_input = f.read()
 
 print(f"Answer to day 6, part 1 is: {calc_num_lanternfish(str_input, 80)}")

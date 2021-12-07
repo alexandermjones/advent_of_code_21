@@ -105,13 +105,13 @@ def calc_final_score(str_input, part_one: bool) -> int:
 
 
 # Test functions work on the test data provided
-with open("4_test.txt") as f:
+with open("test_data/4_test.txt") as f:
     test_data = f.readlines()
 assert calc_final_score(test_data, True) == 4512
 assert calc_final_score(test_data, False) == 1924
 
 # Open puzzle input
-with open("4_input.txt") as f:
+with open("input_data/4_input.txt") as f:
     str_input = f.readlines()
 
 print(f"Answer to day 4, part 1 is: {calc_final_score(str_input, True)}")

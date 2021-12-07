@@ -39,7 +39,7 @@ assert minimise_fuel(test_data, True) == 37
 assert minimise_fuel(test_data, False) == 168
 
 # Open puzzle input
-with open("7_input.txt") as f:
+with open("input_data/7_input.txt") as f:
     str_input = f.read()
 
 print(f"Answer to day 7, part 1 is: {minimise_fuel(str_input, True)}")

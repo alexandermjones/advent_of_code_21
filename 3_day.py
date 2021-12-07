@@ -83,13 +83,13 @@ def calc_life_support_rating(binary_strs: list):
 
 
 # Test functions work on the test data provided
-with open("3_test.txt") as f:
+with open("test_data/3_test.txt") as f:
     test_data = f.readlines()
 assert calc_power_consumption(test_data) == 198
 assert calc_life_support_rating(test_data) == 230
 
 # Open puzzle input
-with open("3_input.txt") as f:
+with open("input_data/3_input.txt") as f:
     binary_strs = f.readlines()
 
 print(f"Answer to day 3, part 1 is: {calc_power_consumption(binary_strs)}")

@@ -51,13 +51,13 @@ def find_number_of_danger_points(str_input: list, part_one: bool) -> int:
 
 
 # Test functions work on the test data provided
-with open("5_test.txt") as f:
+with open("test_data/5_test.txt") as f:
     test_data = f.readlines()
 assert find_number_of_danger_points(test_data, True) == 5
 assert find_number_of_danger_points(test_data, False) == 12
 
 # Open puzzle input
-with open("5_input.txt") as f:
+with open("input_data/5_input.txt") as f:
     str_input = f.readlines()
 
 print(f"Answer to day 5, part 1 is: {find_number_of_danger_points(str_input, True)}")

@@ -51,7 +51,7 @@ assert test_submarine.return_final_position(1) == 150
 assert test_submarine.return_final_position(2) == 900
 
 # Open puzzle input
-with open("2_input.txt") as f:
+with open("input_data/2_input.txt") as f:
     str_input = f.readlines()
 
 submarine = Submarine(str_input)

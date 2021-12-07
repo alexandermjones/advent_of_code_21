@@ -31,7 +31,7 @@ assert count_increases(test_data) == 7
 assert count_increases(create_sliding_windows(test_data)) == 5
 
 # Open puzzle input
-with open("1_input.txt") as f:
+with open("input_data/1_input.txt") as f:
     str_input = f.readlines()
     int_input = [int(x) for x in str_input]
 
